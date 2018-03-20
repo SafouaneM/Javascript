@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Player</title>
+<style>
+
+    body {
+        font-family: 'Copse', Serif;
+        text-align: center;
+    }
+div.picture-holder {
+    box-sizing: border-box;
+    height: 450px;
+    width: 300px;
+    float: left;
+    background: -webkit-linear-gradient(left, #dc1100, #c40035);
+    background: linear-gradient(to right, #dc1100, #c40035);
+    border: solid 1px black;
+}
+
+ div.favoriet {
+     width: 300px;
+     height: 150px;
+     background-color: gray;
+     background-image: none;
+
+
+ }
+
+    function createAapImages() {
+        pictureHolders = document.getElementsByClassName("picture-holder");
+        for (var i = 0; i < pictureHolders.length; i++) {
+        favoriet = document.createElement("div");
+        favoriet.className = "favoriet";
+        favoriet.id = "favoriet_" + (i + 1);
+        aapPlaatje = document.createElement("img");
+        aapPlaatje.src = "../img/aap" + (i + 1) + ".jpg";
+        aapPlaatje.id = (i + 1);
+    aapPlaatje.addEventListener("click", function () {
+    maakFavoriet(this.id);
+    });{
+    pictureHolders[i].appendChild(favoriet);
+    pictureHolders[i].appendChild(aapPlaatje);
+    }
+
+    }
+
+
+
+
+
+#pics {
+    width: 900px;
+    height: 1350px;
+    border: solid 1px black;
+    font-size: 0px;
+    margin:auto;
+}
+
+</style>
+</head>
+<body>
+<h1>PlayerChooser</h1>
+<h3>Pick a Footballer!</h3>
+<div id="pics">
+
+</div>
+<script>
+
+pics = document.getElementById("pics");
+createPicsHolders();
+createPlayerImages();
+
+function createPicsHolders() {
+    for (var i = 0; i < 9; i++) {
+        pictureHolder = document.createElement("div");
+        pictureHolder.classname = "picture-holder";
+        pictureHolder.id = "picture-holder" + i;
+        pics.appendChild(pictureHolder);
+    }
+}
+
+function createPlayerImages() {
+    pictureHolder = document.getElementsByClassName("picture-holder");
+    for (var i = 0; i < pictureHolder.length; i++) {
+        favoriet = document.createElement("div");
+        favoriet.className = "favoriet";
+        favoriet.id = "favoriet_" + (i + 1);
+        playerPic = document.createElement("../");
+        playerPic.src = "../Shuffle1" + (i + 1) + ".jpg";
+        playerPic.id = (i + 1);
+        playerPic.addEventListener("click", function () {
+            maakFavoriet(this.id);
+        });
+        pictureHolder[i].appendChild(favoriet);
+        pictureHolder[i].appendChild(playerPic);
+    }
+function maakFavoriet(id) {
+        console.log("Maak mij favo! Het gaat om speler..." + id );
+        favoriet = document.getElementById("favoriet_" + id);
+        favoriet.style.backgroundImage = "url('../bal.jpg')";
+
+
+
+
+    }
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
